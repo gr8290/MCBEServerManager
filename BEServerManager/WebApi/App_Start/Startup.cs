@@ -1,4 +1,4 @@
-﻿using BEServerManager.Utill;
+﻿using BEServerManager.Util;
 using Owin;
 using System.Web.Http;
 
@@ -31,7 +31,7 @@ namespace BEServerManager.WebApi.App_Start
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            appBuilder.Use<WebApiLogUtill>();
+            appBuilder.Use<WebApiLogUtil>();
             appBuilder.UseWebApi(config);
         }
 

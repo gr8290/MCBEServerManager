@@ -1,4 +1,4 @@
-﻿using BEServerManager.Utill;
+﻿using BEServerManager.Util;
 using Microsoft.Win32;
 using Setting.Sqlite;
 using Setting.Sqlite.Models;

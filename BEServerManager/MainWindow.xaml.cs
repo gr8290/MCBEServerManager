@@ -1,10 +1,6 @@
-﻿using BEServerManager.Manager;
-using BEServerManager.Manager.ProcessLogManager;
-using BEServerManager.Utill;
+﻿using BEServerManager.Util;
 using BEServerManager.WebApi;
 using ProcessManager;
-using Setting.Sqlite;
-using Setting.Sqlite.Models;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,7 +28,6 @@ namespace BEServerManager
         {
             UserControlResources = MainWindowGrid.Resources;
             AddUserControlInGrid("HomeMainUserControl", false);
-
             //AddHandler(ServerControlUserControl.SettingConfirmedEvent, new RoutedEventHandler(Window_UserControl_SettingConfirmedEventHandlerMethod));
         }
 
@@ -122,7 +117,7 @@ namespace BEServerManager
         protected override void OnSourceInitialized(EventArgs e)
         {
             base.OnSourceInitialized(e);
-            ((HwndSource)PresentationSource.FromVisual(this)).AddHook(WindowChromeUtill.HookProc);
+            ((HwndSource)PresentationSource.FromVisual(this)).AddHook(WindowChromeUtil.HookProc);
         }
 
         private void MinimizedButton_Click(object sender, RoutedEventArgs e)

@@ -3,14 +3,14 @@ using Microsoft.Owin.Logging;
 using Owin;
 using System.Threading.Tasks;
 
-namespace BEServerManager.Utill
+namespace BEServerManager.Util
 {
-    class WebApiLogUtill : OwinMiddleware
+    class WebApiLogUtil : OwinMiddleware
     {
         public delegate void OutPutLogDelegate(IOwinContext con);
         public static OutPutLogDelegate OnOutPutLog;
 
-        public WebApiLogUtill(
+        public WebApiLogUtil(
             OwinMiddleware next) : base(next)
         {
         }

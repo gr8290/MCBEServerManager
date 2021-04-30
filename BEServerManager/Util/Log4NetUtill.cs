@@ -1,9 +1,9 @@
 ﻿using log4net;
 using System.Runtime.CompilerServices;
 
-namespace BEServerManager.Utill
+namespace BEServerManager.Util
 {
-    static class Log4NetUtill
+    static class Log4NetUtil
     {
         public static void InfoLogStart(string str, [CallerMemberName] string name = "")
         {

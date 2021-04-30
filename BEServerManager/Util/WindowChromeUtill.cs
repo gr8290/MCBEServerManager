@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace BEServerManager.Utill
+namespace BEServerManager.Util
 {
-    public class WindowChromeUtill
+    public class WindowChromeUtil
     {
 		public static IntPtr HookProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
 		{

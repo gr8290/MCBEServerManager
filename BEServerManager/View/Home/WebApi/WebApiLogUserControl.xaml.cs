@@ -1,4 +1,4 @@
-﻿using BEServerManager.Utill;
+﻿using BEServerManager.Util;
 using Microsoft.Owin;
 using System;
 using System.Windows.Controls;
@@ -26,7 +26,7 @@ namespace BEServerManager.View.Home.WebApi
 
         private void UserControl_Initialized(object sender, EventArgs e)
         {
-            WebApiLogUtill.OnOutPutLog = AppendText;
+            WebApiLogUtil.OnOutPutLog = AppendText;
         }
     }
 }

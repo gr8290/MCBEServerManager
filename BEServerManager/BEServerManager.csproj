@@ -57,17 +57,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <Page Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    </Page>
     <Compile Include="Data\EntryUserData.cs" />
     <Compile Include="Manager\EntryUserManager.cs" />
     <Compile Include="Manager\ProcessLogManager\ProcessLogManagerBase.cs" />
     <Compile Include="Manager\ProcessLogManager\ServerLogManager.cs" />
     <Compile Include="Manager\ProcessLogManager\CommandHistoryLogManager.cs" />
-    <Compile Include="Utill\WindowChromeUtill.cs" />
-    <Compile Include="Utill\WebApiLogUtill.cs" />
+    <Compile Include="Util\WindowChromeUtill.cs" />
+    <Compile Include="Util\WebApiLogUtill.cs" />
     <Compile Include="View\Home\BEServer\BEServerControlMenuUserControl.xaml.cs">
       <DependentUpon>BEServerControlMenuUserControl.xaml</DependentUpon>
     </Compile>
@@ -91,6 +91,9 @@
     </Compile>
     <Compile Include="View\Home\WebApi\WebApiMainUserControl.xaml.cs">
       <DependentUpon>WebApiMainUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InitialSetting\InitialSettingWindow.xaml.cs">
+      <DependentUpon>InitialSettingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MainMenu\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
@@ -116,8 +119,8 @@
     <Compile Include="WebApi\App_Start\Startup.cs" />
     <Compile Include="WebApi\Controllers\BeServerController.cs" />
     <Compile Include="WebApi\BeServerWebApi.cs" />
-    <Compile Include="Utill\Log4NetUtill.cs" />
-    <Compile Include="Utill\MessageBoxUtill.cs" />
+    <Compile Include="Util\Log4NetUtill.cs" />
+    <Compile Include="Util\MessageBoxUtill.cs" />
     <Compile Include="WebApi\Models\BeServer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\MCToggleButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\WindowBorderStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Home\WebApi\WebApiMainUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InitialSetting\InitialSettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

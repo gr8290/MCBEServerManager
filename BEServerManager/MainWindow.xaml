@@ -7,22 +7,13 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:local2="clr-namespace:BEServerManager.View.Home" xmlns:local="clr-namespace:BEServerManager.View.Template" xmlns:local3="clr-namespace:BEServerManager.View.MainMenu"
     x:Name="window" x:Class="BEServerManager.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1400" Initialized="Window_Initialized" Closing="Window_Closing" MinWidth="200" MinHeight="500" 
+        Title="MainWindow" Height="700" Width="1400" Initialized="Window_Initialized" 
+        Closing="Window_Closing" MinWidth="200" MinHeight="500" 
         AllowsTransparency="True" 
         WindowStyle="None"
-    Background="#c6c6c6">
+    Background="{StaticResource BackgroundColor}">
 
     <Window.Resources>
-        <Style x:Key="WindowMainPanelStyle" TargetType="{x:Type Border}">
-            <Setter Property="BorderBrush" Value="#252526" />
-            <Setter Property="BorderThickness" Value="4" />
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=WindowState}" Value="Maximized">
-                    <Setter Property="BorderThickness" Value="4" />
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
-
         <Style x:Key="TitleBarBittonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource MCButtonStyle}">
             <Setter Property="Height" Value="45"/>
             <Setter Property="Width" Value="45"/>
@@ -57,7 +48,7 @@
                               CaptionHeight="{StaticResource CaptionHeight}"/>
     </WindowChrome.WindowChrome>
 
-    <Border BorderBrush="#252526" Style="{StaticResource WindowMainPanelStyle}" x:Name="WindowBorder">
+    <Border Style="{StaticResource WindowBorderStyle}" x:Name="WindowBorder">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -66,7 +57,7 @@
             </Grid.RowDefinitions>
 
             <!--1行目 ヘッダ-->
-            <Grid Background=" #c6c6c6">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="5"/>

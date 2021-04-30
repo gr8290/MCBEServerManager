@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:BEServerManager.View.InitialSetting"
         mc:Ignorable="d"
         Title="InitialSettingWindow" Height="450" Width="800" 
         Background="{StaticResource BackgroundColor}"
@@ -34,7 +33,7 @@
                 </Label>
                 <StackPanel Grid.Row="1">
                     <Label Content="名前　※任意の名前を設定"/>
-                    <TextBox Style="{StaticResource MCTextBoxStyle2}" Height="35" Name="Name"/>
+                    <TextBox Style="{StaticResource MCTextBoxStyle2}" Height="35" Name="FilePathName"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
                     <Label Content="ファイルパス　※サーバのファイルパスを設定"/>

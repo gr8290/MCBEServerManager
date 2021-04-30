@@ -12,8 +12,6 @@ namespace ProcessManager
 
         private bool isRunning = false;
 
-
-
         public bool IsRunning { get { return !(_process is null) && isRunning; } }
 
         public List<Action<string>> DataReceivedActionList = new List<Action<string>>();
@@ -102,14 +100,6 @@ namespace ProcessManager
                 SendCommand("stop ");
                 WaitForExitAsync(_process);
             }
-            catch (InvalidOperationException ex1)
-            {
-                //MessageBoxUtil.ExceptionMessageBoxShow(ex1.ToString());
-            }
-            catch (Exception ex2)
-            {
-                //MessageBoxUtil.ExceptionMessageBoxShow(ex2.ToString());
-            }
             finally
             {
                 _process?.Close();
@@ -118,7 +108,6 @@ namespace ProcessManager
                 isRunning = false;
                 StatusChangedActionEvent(isRunning);
             }
-
         }
 
         public void Kill()
@@ -137,7 +126,7 @@ namespace ProcessManager
             var tcs = new TaskCompletionSource<object>();
             process.EnableRaisingEvents = true;
             process.Exited += (sender, args) => tcs.TrySetResult(null);
-            if (cancellationToken != default(CancellationToken))
+            if (cancellationToken != default)
                 cancellationToken.Register(tcs.SetCanceled);
         }
     }

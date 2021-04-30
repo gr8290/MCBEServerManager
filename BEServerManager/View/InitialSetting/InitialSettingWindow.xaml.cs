@@ -2,20 +2,8 @@
 using Microsoft.Win32;
 using Setting.Sqlite;
 using Setting.Sqlite.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BEServerManager.View.InitialSetting
 {
@@ -47,7 +35,7 @@ namespace BEServerManager.View.InitialSetting
         {
             if (!InputDataValid())
             {
-                if (InsertInitData(Name.Text, FilePath.Text))
+                if (InsertInitData(FilePathName.Text, FilePath.Text))
                 {
                     new MainWindow().Show();
                 }
@@ -86,7 +74,7 @@ namespace BEServerManager.View.InitialSetting
 
         private bool InputDataValid()
         {
-            if (string.IsNullOrEmpty(Name.Text) || string.IsNullOrWhiteSpace(Name.Text))
+            if (string.IsNullOrEmpty(FilePathName.Text) || string.IsNullOrWhiteSpace(FilePathName.Text))
             {
                 MessageBoxUtil.WarningMessageBoxShow($"名前が未入力または空白で構成されています。");
                 return true;

@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntryUserManager\Data\UserData.cs" />
+    <Compile Include="EntryUserManager\EntryUserManager.cs" />
+    <Compile Include="EntryUserManager\Util\GetUserInfoUtil.cs" />
     <Compile Include="LogManager\CommandHistoryLogManager.cs" />
     <Compile Include="LogManager\LogManagerAbstract.cs" />
     <Compile Include="LogManager\ServerLogManager.cs" />

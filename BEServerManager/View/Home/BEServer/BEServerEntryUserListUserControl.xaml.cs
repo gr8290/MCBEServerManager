@@ -1,6 +1,6 @@
-﻿using BEServerManager.Data;
-using BEServerManager.Manager;
-using ProcessManager;
+﻿using ProcessManager;
+using ProcessManager.EntryUserManager;
+using ProcessManager.EntryUserManager.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,13 +13,19 @@ namespace BEServerManager.View.Home.BEServer
     /// </summary>
     public partial class BEServerEntryUserListUserControl : UserControl
     {
-        private ObservableCollection<EntryUserData> UserNameCollection;
+        private ObservableCollection<UserData> UserNameCollection;
         private EntryUserManager entryUserManager;
 
 
         public BEServerEntryUserListUserControl()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Initialized(object sender, EventArgs e)
+        {
+            ProcessWrapper.Instance.ServerStatusChangedActionList.Add(ChangeServerStatus);
+            test();
         }
 
         private void ChangeServerStatus(bool flg)
@@ -33,18 +39,18 @@ namespace BEServerManager.View.Home.BEServer
             else
             {
                 entryUserManager.Stop();
+                UserNameCollection.Clear();
+                SetCountEntryUser(0);
                 Dispatcher.Invoke(() =>
                 {
-                    UserNameCollection.Clear();
-                    SetCountEntryUser(0);
                 });
             }
         }
 
 
-        private void SetEntryUser(List<EntryUserData> entryUserList)
+        private void SetEntryUser(List<UserData> entryUserList)
         {
-            UserNameCollection = new ObservableCollection<EntryUserData>(entryUserList);
+            UserNameCollection = new ObservableCollection<UserData>(entryUserList);
             UserListBox.Dispatcher.Invoke(() =>
             {
                 UserListBox.DataContext = UserNameCollection;
@@ -59,22 +65,18 @@ namespace BEServerManager.View.Home.BEServer
 
         private void test()
         {
-            List<EntryUserData> entryUserDatas = new List<EntryUserData>();
+            List<UserData> entryUserDatas = new List<UserData>();
             for (int i = 0; i < 10; i++)
             {
-                EntryUserData entryUserData = new EntryUserData();
+                UserData entryUserData = new UserData();
                 entryUserData.UserName = "test";
                 entryUserData.Xuid = "aaaaaaaaaa";
                 entryUserDatas.Add(entryUserData);
             }
-            UserNameCollection = new ObservableCollection<EntryUserData>(entryUserDatas);
+            UserNameCollection = new ObservableCollection<UserData>(entryUserDatas);
             UserListBox.DataContext = UserNameCollection;
         }
 
-        private void UserControl_Initialized(object sender, EventArgs e)
-        {
-            ProcessWrapper.Instance.ServerStatusChangedActionList.Add(ChangeServerStatus);
-            test();
-        }
+
     }
 }

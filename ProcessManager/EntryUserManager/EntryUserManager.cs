@@ -1,22 +1,20 @@
-﻿using BEServerManager.Data;
-using ProcessManager;
+﻿using ProcessManager.EntryUserManager.Data;
+using ProcessManager.EntryUserManager.Util;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace BEServerManager.Manager
+namespace ProcessManager.EntryUserManager
 {
     public class EntryUserManager
     {
-        public delegate void ReceiveEntryUserEventHandler(List<EntryUserData> entryUserDictionary);
+        public delegate void ReceiveEntryUserEventHandler(List<UserData> UserDataList);
         public event ReceiveEntryUserEventHandler ReceiveEntryUserEvent;
 
-        private List<EntryUserData> EntryUserDataList = new List<EntryUserData>();
+        private List<UserData> EntryUserDataList = new List<UserData>();
 
         public EntryUserManager()
         {
-
         }
 
         public void Start()
@@ -29,15 +27,21 @@ namespace BEServerManager.Manager
             ProcessWrapper.Instance.DataReceivedActionList.Remove(ReceiveLog);
         }
 
+        private void ReceiveLog(string log)
+        {
+            Execute(log);
+            ReceiveEntryUserEvent(EntryUserDataList);
+        }
+
         private void Execute(string log)
         {
             if (log == null || log == "")
             {
                 return;
             }
-            Match connectedUserMatch = GetConnectedUserName(log);
-            Match disconnectedUserMatch = GetDisconnectedUserName(log);
-            Match XuidMatch = GetXuid(log);
+            Match connectedUserMatch = GetUserInfoUtil.GetConnectedUserName(log);
+            Match disconnectedUserMatch = GetUserInfoUtil.GetDisconnectedUserName(log);
+            Match XuidMatch = GetUserInfoUtil.GetXuid(log);
 
             if (connectedUserMatch.Success)
             {
@@ -47,39 +51,13 @@ namespace BEServerManager.Manager
             {
                 RemoveUser(disconnectedUserMatch, XuidMatch);
             }
-
-        }
-
-        private void ReceiveLog(string log)
-        {
-            Execute(log);
-            ReceiveEntryUserEvent(EntryUserDataList);
-        }
-
-        private Match GetDisconnectedUserName(string log)
-        {
-            string disconnectedUserReg = @"(?<=Player\sdisconnected:\s)[0-9a-zA-Z]*[0-9a-zA-Z]+?(?=,\sxuid:\s)";
-            return Regex.Match(log, disconnectedUserReg);
-        }
-
-        private Match GetConnectedUserName(string log)
-        {
-            string connectedUserReg = @"(?<=Player\sconnected:\s)[0-9a-zA-Z]*[0-9a-zA-Z]+?(?=,\sxuid:\s)";
-            return Regex.Match(log, connectedUserReg);
-        }
-
-        private Match GetXuid(string log)
-        {
-            string userXuid = @"(?<= (xuid:\s))\d{16}";
-            return Regex.Match(log, userXuid);
         }
 
         private void AddUser(Match userName, Match xuid)
         {
-
             if (EntryUserDataList.Count == 0 || EntryUserDataList.Where(a => a.UserName.Equals(userName.Value) || a.Xuid.Equals(xuid.Value)).Count() == 0)
             {
-                EntryUserData entryUserData = new EntryUserData
+                UserData entryUserData = new UserData
                 {
                     UserName = userName.Value,
                     Xuid = xuid.Value
@@ -92,13 +70,18 @@ namespace BEServerManager.Manager
         {
             if (EntryUserDataList.Count == 0 || EntryUserDataList.Where(a => a.UserName.Equals(userName.Value) || a.Xuid.Equals(xuid.Value)).Count() != 0)
             {
-                EntryUserData entryUserData = new EntryUserData
+                UserData entryUserData = new UserData
                 {
                     UserName = userName.Value,
                     Xuid = xuid.Value
                 };
-                EntryUserDataList.Remove(entryUserData);
+                var target = EntryUserDataList.FirstOrDefault(a => a.UserName.Equals(userName.Value) && a.Xuid.Equals(xuid.Value));
+                if (target != null)
+                {
+                    EntryUserDataList.Remove(target);
+                }
             }
         }
+
     }
 }

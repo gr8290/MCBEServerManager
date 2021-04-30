@@ -30,23 +30,26 @@
                         Content="BeServer" 
                         Click="BeServerBtn_Click"/>-->
 
-                <Button  Style="{StaticResource MenuButtinStyle}"
+                <ToggleButton  Style="{StaticResource MCToggleButtonStyle}"
                         x:Name="BeServerManagerBtn" 
                         Content="BeServerManager" 
                         Click="BeServerManagerBtn_Click"
-                        Tag="BeServerManagerSetting"/>
+                        Tag="BeServerManagerSetting"
+                         Margin="4"/>
 
-                <Button Style="{StaticResource MenuButtinStyle}" 
+                <ToggleButton Style="{StaticResource MCToggleButtonStyle}" 
                         x:Name="WebApiBtn" 
                         Content="WebApi" 
                         Click="WebApiBtn_Click"
-                        Tag="WebApiSettingUser"/>
-                
-                <Button Style="{StaticResource MenuButtinStyle}" 
+                        Tag="WebApiSettingUser"
+                        Margin="4"/>
+
+                <ToggleButton Style="{StaticResource MCToggleButtonStyle}" 
                         x:Name="AdvancedSettingBtn" 
                         Content="高度な設定" 
                         Click="AdvancedSettingBtn_Click"
-                        Tag="BeServerManagerAdvancedSetting"/>
+                        Tag="BeServerManagerAdvancedSetting"
+                        Margin="4"/>
                 
             </StackPanel>
         </Grid>

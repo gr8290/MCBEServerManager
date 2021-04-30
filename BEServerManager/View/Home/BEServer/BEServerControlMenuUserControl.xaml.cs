@@ -1,13 +1,8 @@
-﻿using BEServerManager.Data;
-using BEServerManager.Manager;
-using BEServerManager.Manager.ProcessLogManager;
-using BEServerManager.WebApi;
-using ProcessManager;
+﻿using ProcessManager;
 using Setting.Sqlite;
 using Setting.Sqlite.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,9 +14,6 @@ namespace BEServerManager.View.Home.BEServer
     /// </summary>
     public partial class BEServerControlMenuUserControl : UserControl
     {
-
-
-
         public BEServerControlMenuUserControl()
         {
             InitializeComponent();
@@ -47,7 +39,6 @@ namespace BEServerManager.View.Home.BEServer
             }
             else if (ProcessWrapper.Instance.IsRunning == true)
             {
-
                 ProcessManager.LogManager.ServerLogManager.Instance.GetLog();
                 ProcessWrapper.Instance.Stop();
             }

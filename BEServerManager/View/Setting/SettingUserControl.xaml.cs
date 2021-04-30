@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media.Animation;
 
 namespace BEServerManager.View.Setting
@@ -31,7 +32,7 @@ namespace BEServerManager.View.Setting
 
         private void BeServerManagerBtn_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
+            ToggleButton btn = (ToggleButton)sender;
             DeleteUserControlInGrid(btn);
             AddUserControlInGrid(btn);
 
@@ -39,19 +40,19 @@ namespace BEServerManager.View.Setting
 
         private void WebApiBtn_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
+            ToggleButton btn = (ToggleButton)sender;
             DeleteUserControlInGrid(btn);
             AddUserControlInGrid(btn);
         }
 
         private void AdvancedSettingBtn_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
+            ToggleButton btn = (ToggleButton)sender;
             DeleteUserControlInGrid(btn);
             AddUserControlInGrid(btn);
         }
 
-        private void DeleteUserControlInGrid(Button btn)
+        private void DeleteUserControlInGrid(ToggleButton btn)
         {
             foreach (var i in UserControlResources.Keys)
             {
@@ -68,7 +69,7 @@ namespace BEServerManager.View.Setting
             }
         }
 
-        private void AddUserControlInGrid(Button btn)
+        private void AddUserControlInGrid(ToggleButton btn)
         {
             UserControl adduc = (UserControl)UserControlResources[btn.Tag.ToString()];
             if (!MainGrid.Children.Contains(adduc))

@@ -1,5 +1,4 @@
-﻿using BEServerManager.Manager;
-using BEServerManager.WebApi.Models;
+﻿using BEServerManager.WebApi.Models;
 using ProcessManager;
 using Setting.Sqlite;
 using Setting.Sqlite.Models;

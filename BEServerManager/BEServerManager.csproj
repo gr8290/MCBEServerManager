@@ -61,11 +61,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Data\EntryUserData.cs" />
-    <Compile Include="Manager\EntryUserManager.cs" />
-    <Compile Include="Manager\ProcessLogManager\ProcessLogManagerBase.cs" />
-    <Compile Include="Manager\ProcessLogManager\ServerLogManager.cs" />
-    <Compile Include="Manager\ProcessLogManager\CommandHistoryLogManager.cs" />
     <Compile Include="Util\WindowChromeUtill.cs" />
     <Compile Include="Util\WebApiLogUtill.cs" />
     <Compile Include="View\Home\BEServer\BEServerControlMenuUserControl.xaml.cs">

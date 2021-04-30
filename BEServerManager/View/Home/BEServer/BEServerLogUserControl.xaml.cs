@@ -1,6 +1,4 @@
-﻿using BEServerManager.Manager;
-using BEServerManager.Manager.ProcessLogManager;
-using ProcessManager;
+﻿using ProcessManager;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -71,7 +69,7 @@ namespace BEServerManager.View.Home.BEServer
                 return;
             }
             TextBox textBox = (TextBox)sender;
-            List<string> commandHistory = CommandHistoryLogManager.Instance.GetLog();
+            List<string> commandHistory = ProcessManager.LogManager.CommandHistoryLogManager.Instance.GetLog();
             if (e.Key == Key.Up)
             {
                 if (_historyIndex < commandHistory.Count - 1)

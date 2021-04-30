@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProcessManager.LogManager
+﻿namespace ProcessManager.LogManager
 {
-    class CommandHistoryLogManager : LogManagerAbstract<CommandHistoryLogManager>
+    public class CommandHistoryLogManager : LogManagerAbstract<CommandHistoryLogManager>
     {
         protected override void AddLogAction()
         {
-            throw new NotImplementedException();
+            ProcessWrapper.Instance.DataSentActionList.Add(AddLog);
         }
     }
 }

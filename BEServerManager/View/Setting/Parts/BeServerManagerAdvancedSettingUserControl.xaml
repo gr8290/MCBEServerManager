@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="BEServerManager.View.Setting.Parts.BeServerManagerAdvancedSettingUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BEServerManager.View.Setting.Parts"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Name="BeServerHighSettingStackPanel" Width="{StaticResource BaseWidth}">
+            <TextBlock Text="BeServerManager高度な設定の設定" Style="{StaticResource MajorItemsFontSetting}"/>
+            <StackPanel  Style="{StaticResource StackPanelSetting}">
+                <TextBlock Text="UseShellExecute"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelSetting}">
+                    <RadioButton Content="True" x:Name="UseShellExecuteTrueRadioButton"/>
+                    <RadioButton Content="False" x:Name="UseShellExecuteFalseRadioButton"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel  Style="{StaticResource StackPanelSetting}">
+                <TextBlock Text="RedirectStandardOutput"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelSetting}">
+                    <RadioButton Content="True" x:Name="RedirectStandardOutputTrueRadioButton"/>
+                    <RadioButton Content="False"  x:Name="RedirectStandardOutputFalseRadioButton"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel  Style="{StaticResource StackPanelSetting}">
+                <TextBlock Text="CreateNoWindow"/>
+                <StackPanel Orientation="Horizontal" Style="{StaticResource StackPanelSetting}">
+                    <RadioButton Content="True"  x:Name="CreateNoWindowTrueRadioButton"/>
+                    <RadioButton Content="False"   x:Name="CreateNoWindowFalseRadioButton"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

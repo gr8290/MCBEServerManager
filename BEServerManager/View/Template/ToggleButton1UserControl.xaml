@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="BEServerManager.View.Template.ToggleButton1UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="400" x:Name="root">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ToggleButton Style="{StaticResource MCToggleButtonStyle}" Content="{Binding ButtonContent, ElementName=root}" Grid.Column="0" Click="Button_Click" Height="45" IsChecked="{Binding ButtonIsChecked, ElementName=root}"/>
+        <DockPanel Background="#494949" Grid.Column="1" Height="35" x:Name="ContentName" Visibility="{Binding ButtonVisibility, ElementName=root}">
+            <TextBlock Text="{Binding ButtonText, ElementName=root}" Foreground="White" VerticalAlignment="Center" Margin="4,0" FontSize="18"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

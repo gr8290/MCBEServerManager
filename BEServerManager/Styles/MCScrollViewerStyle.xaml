@@ -1,0 +1,96 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- スクロールバーの幅 -->
+    <sys:Double x:Key="ScrollBarSize">14</sys:Double>
+    <!-- スクロールバーの色-->
+    <SolidColorBrush x:Key="ScrollBarColorBrush" Color="#c6c6c6" />
+    <!-- レーンの色 -->
+    <SolidColorBrush x:Key="ScrollBarTrackBrush" Color="#434343" />
+    
+    <!--ラインの幅-->
+    <sys:Double x:Key="LineStrokeThickness">2</sys:Double>
+    <!--トップラインの幅-->
+    <SolidColorBrush x:Key="TopInlineColor" Color="#F7F7F7" />
+    <!--ボトムラインの幅-->
+    <SolidColorBrush x:Key="BottomInlineColor" Color="#656465" />
+    <!--外枠の色-->
+    <SolidColorBrush x:Key="OutLineColor" Color="#090909" />
+
+    <!-- つまみのスタイル -->
+    <Style x:Key="MCScrollBarThumbStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid Background="{StaticResource OutLineColor}">
+                        <Grid Margin="2" Background="{StaticResource ScrollBarColorBrush}">
+                            <Rectangle Fill="{StaticResource TopInlineColor}" Height="{StaticResource LineStrokeThickness}" VerticalAlignment="Top"/>
+                            <Rectangle Fill="{StaticResource BottomInlineColor}" Height="{StaticResource LineStrokeThickness}" VerticalAlignment="Bottom"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- カスタムスクロールバーのスタイル -->
+    <Style x:Key="MCScrollBarStyle" TargetType="{x:Type ScrollBar}">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Style.Triggers>
+            <!-- 縦向きのスクロールバー -->
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Width" Value="{StaticResource ScrollBarSize}"/>
+                <Setter Property="Height" Value="Auto"/>
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <Thickness 
+                            Left="{StaticResource LineStrokeThickness}"
+                            Top="{StaticResource LineStrokeThickness}" 
+                            Right="{StaticResource LineStrokeThickness}" 
+                            Bottom="{StaticResource LineStrokeThickness}" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Grid>
+                                <Border CornerRadius="0" Background="{StaticResource ScrollBarTrackBrush}" />
+                                <Track x:Name="PART_Track" IsDirectionReversed="true">
+                                    <Track.Thumb>
+                                        <Thumb Style="{StaticResource MCScrollBarThumbStyle}"  Margin="0,1,0,1"/>
+                                    </Track.Thumb>
+                                </Track>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- カスタム ScrollViewer のスタイル -->
+    <Style x:Key="MCScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollContentPresenter Grid.Column="0" Grid.Row="0">
+                        </ScrollContentPresenter>
+                        <ScrollBar x:Name="PART_VerticalScrollBar" Grid.Column="1" Grid.Row="0" Orientation="Vertical" 
+                                       Value="{TemplateBinding VerticalOffset}" 
+                                       Maximum="{TemplateBinding ScrollableHeight}" 
+                                       ViewportSize="{TemplateBinding ViewportHeight}" 
+                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" 
+                                       Style="{StaticResource MCScrollBarStyle}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

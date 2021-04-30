@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="BEServerManager.View.Home.BEServer.BEServerEntryUserListUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Initialized="UserControl_Initialized">
+    <Grid>
+        <!--テンプレート化-->
+        <Border Background="#757575" BorderBrush="#898989" BorderThickness="2">
+            <StackPanel >
+                <TextBlock Text="参加ユーザ一覧" FontSize="12" Foreground="White" Margin="8,4,0,4"/>
+                <TextBlock Text="0/10" FontSize="12" Foreground="White" Margin="8,4,0,4" x:Name="EntryUser"/>
+                <ListBox  x:Name="UserListBox" ItemsSource="{Binding}"  Height="300" Background="Transparent" BorderBrush="Transparent">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#757575" BorderBrush="#000000" BorderThickness="2" Margin="0,0,0,4" x:Name="ListBoxItemInBorder">
+                                <Grid Height="40"   x:Name="ListBoxItemInGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <DockPanel Grid.Row="0" Grid.Column="1" >
+                                        <TextBox DockPanel.Dock="Top" Text="{Binding UserName}" IsReadOnly="True" Background="Transparent" BorderThickness="0" Foreground="White" VerticalAlignment="Center"/>
+                                        <TextBox DockPanel.Dock="Bottom" Text="{Binding Xuid}" IsReadOnly="True" Background="Transparent" BorderThickness="0" Foreground="White" VerticalAlignment="Center" />
+                                    </DockPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                            </Style.Triggers>
+
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="BEServerManager.View.Setting.SettingUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local1="clr-namespace:BEServerManager.View.Setting.Parts"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800" Background="White" Initialized="UserControl_Initialized">
+
+    <Grid x:Name="MainGrid">
+        <Grid.Resources>
+            <local1:BeServerManagerAdvancedSettingUserControl x:Key="BeServerManagerAdvancedSetting" x:Name="BeServerManagerAdvancedSettingName"/>
+            <local1:BeServerManagerSettingUserControl   x:Key="BeServerManagerSetting" x:Name="BeServerManagerSettingName"/>
+            <local1:WebApiSettingUserControl  x:Key="WebApiSettingUser" x:Name="WebApiSettingUserName"/>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Width , ElementName=MenuStackPanel}" x:Name="MainGridCol"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Style="{StaticResource GridMenuBGColor}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel  HorizontalAlignment="Left" Width="150" Grid.Row="2" Margin="0,5,0,0" x:Name="MenuStackPanel">
+                <!--<Button Style="{StaticResource MenuButtinStyle}" 
+                        x:Name="BeServerBtn" 
+                        Content="BeServer" 
+                        Click="BeServerBtn_Click"/>-->
+
+                <Button  Style="{StaticResource MenuButtinStyle}"
+                        x:Name="BeServerManagerBtn" 
+                        Content="BeServerManager" 
+                        Click="BeServerManagerBtn_Click"
+                        Tag="BeServerManagerSetting"/>
+
+                <Button Style="{StaticResource MenuButtinStyle}" 
+                        x:Name="WebApiBtn" 
+                        Content="WebApi" 
+                        Click="WebApiBtn_Click"
+                        Tag="WebApiSettingUser"/>
+                
+                <Button Style="{StaticResource MenuButtinStyle}" 
+                        x:Name="AdvancedSettingBtn" 
+                        Content="高度な設定" 
+                        Click="AdvancedSettingBtn_Click"
+                        Tag="BeServerManagerAdvancedSetting"/>
+                
+            </StackPanel>
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

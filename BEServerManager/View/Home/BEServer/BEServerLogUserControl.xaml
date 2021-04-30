@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="BEServerManager.View.Home.BEServer.BEServerLogUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"  Initialized="UserControl_Initialized" Background="#c6c6c6">
+    <Grid x:Name="MainGrd"  Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Background="#494949" Margin="0,0,0,4" >
+            <TextBlock Text="Bedrock Dedicated Server ログ"  Foreground="#ffffff" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        </DockPanel>
+        <TextBox Grid.Row="1" x:Name="ServetLogTextBox" TextWrapping="Wrap" IsReadOnly="True" Style="{StaticResource MCTextBoxStyle1}"/>
+
+        <Grid Grid.Row="2"  IsEnabled="False" Name="InputCmdGrid" Margin="0,2,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="120"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="CmdTextBox" Grid.Column="0" Style="{StaticResource MCTextBoxStyle2}" 
+                     Margin="0,0,2,0" 
+                     FontSize="20" 
+                     AcceptsReturn="False"
+                     TextWrapping="NoWrap" PreviewKeyDown="CmdTextBox_PreviewKeyDown"/>
+            <Button x:Name="CmdSendBtn" Content="送信"   Grid.Column="1"   Click="CmdSendBtn_Click" Style="{StaticResource MCButtonStyle}"/>
+        </Grid>
+    </Grid>
+</UserControl>

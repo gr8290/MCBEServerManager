@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="BEServerManager.View.Setting.Parts.WebApiSettingUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BEServerManager.View.Setting.Parts"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Initialized="UserControl_Initialized">
+    <Grid x:Name="MainGrid">
+        <!--WebApi設定-->
+        <StackPanel  Name="WebApiSettingStackPanel" Width="{StaticResource BaseWidth}">
+            <TextBlock Text="WebApiの設定" Style="{StaticResource MajorItemsFontSetting}"/>
+            <StackPanel  Style="{StaticResource StackPanelSetting}">
+                <TextBlock Text="WebApiのベースアドレス"/>
+                <TextBox Style="{StaticResource TextBoxSetting}" Name="BaseAddressTextBox"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

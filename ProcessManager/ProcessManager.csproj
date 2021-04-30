@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LogManager\CommandHistoryLogManager.cs" />
     <Compile Include="LogManager\LogManagerAbstract.cs" />
     <Compile Include="LogManager\ServerLogManager.cs" />
     <Compile Include="ProcessWrapper.cs" />

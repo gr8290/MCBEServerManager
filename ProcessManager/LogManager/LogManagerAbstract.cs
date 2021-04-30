@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProcessManager.LogManager
 {
-    internal abstract class LogManagerAbstract<T> where T : class, new()
+    public abstract class LogManagerAbstract<T> where T : class, new()
     {
         private List<string> Log { get; set; } = new List<string>();
 

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProcessManager.LogManager
+﻿namespace ProcessManager.LogManager
 {
-    class ServerLogManager
+    public class ServerLogManager : LogManagerAbstract<ServerLogManager>
     {
+        protected override void AddLogAction()
+        {
+            ProcessWrapper.Instance.DataSentActionList.Add(AddLog);
+        }
     }
 }

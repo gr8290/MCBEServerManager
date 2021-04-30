@@ -17,9 +17,10 @@ namespace BEServerManager
         [STAThread()]
         static public void Main()
         {
-            ServerLogManager.Instance.Init();
+            //ServerLogManager.Instance.Init();
             CommandHistoryLogManager.Instance.Init();
             SqliteEnvironment.Init();
+            ProcessManager.LogManager.ServerLogManager.Instance.Init();
 
             var app = new App();
             app.InitializeComponent();

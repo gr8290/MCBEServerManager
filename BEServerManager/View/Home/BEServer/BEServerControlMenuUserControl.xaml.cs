@@ -1,5 +1,6 @@
 ﻿using BEServerManager.Data;
 using BEServerManager.Manager;
+using BEServerManager.Manager.ProcessLogManager;
 using BEServerManager.WebApi;
 using ProcessManager;
 using Setting.Sqlite;
@@ -46,6 +47,8 @@ namespace BEServerManager.View.Home.BEServer
             }
             else if (ProcessWrapper.Instance.IsRunning == true)
             {
+
+                ProcessManager.LogManager.ServerLogManager.Instance.GetLog();
                 ProcessWrapper.Instance.Stop();
             }
         }

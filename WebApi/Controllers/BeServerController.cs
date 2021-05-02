@@ -1,21 +1,21 @@
-﻿using BEServerManager.WebApi.Models;
-using ProcessManager;
+﻿using ProcessManager;
 using Setting.Sqlite;
 using Setting.Sqlite.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Results;
+using WebApi.Models;
 
-namespace BEServerManager.WebApi.Controllers
+namespace WebApi.Controllers
 {
     public class BeServerController : ApiController
     {
-
         [HttpGet]
-        public JsonResult<BeServer> Start()
+        public JsonResult<BeServerModel> Start()
         {
-            BeServer beServer = new BeServer();
+            BeServerModel beServer = new BeServerModel();
             if (ProcessWrapper.Instance.IsRunning == false)
             {
                 using (SqliteWrapper sqlite = new SqliteWrapper())
@@ -23,44 +23,44 @@ namespace BEServerManager.WebApi.Controllers
                     List<ServerModel> res = sqlite.ExecuteSelect<ServerModel>().ToList();
                     ProcessWrapper.Instance.Start(res.FirstOrDefault(a => a.target == 1).path);
                 }
-                beServer.ErrorMessage = "ないよ( 一一)";
+                beServer.Result = true;
             }
             else if (ProcessWrapper.Instance.IsRunning == true)
             {
-                beServer.ErrorMessage = "すでに稼働してます。(; ･`д･´)";
+                beServer.Result = false;
             }
-            beServer.IsRunning = ProcessWrapper.Instance.IsRunning;
             return Json(beServer);
         }
 
         [HttpGet]
-        public JsonResult<BeServer> Stop()
+        public JsonResult<BeServerModel> Stop()
         {
-            BeServer beServer = new BeServer();
+            BeServerModel beServer = new BeServerModel();
             if (ProcessWrapper.Instance.IsRunning == false)
             {
-                beServer.ErrorMessage = "稼働していないため、停止できませんでした。(; ･`д･´)";
+                beServer.Result = false;
             }
             else if (ProcessWrapper.Instance.IsRunning == true)
             {
                 ProcessWrapper.Instance.Stop();
-                beServer.ErrorMessage = "ないよ( 一一)";
+                beServer.Result = true;
             }
-            beServer.IsRunning = ProcessWrapper.Instance.IsRunning;
+            return Json(beServer);
+        }
+
+        [HttpGet]
+        public JsonResult<BeServerModel> Status()
+        {
+            BeServerModel beServer = new BeServerModel
+            {
+                Result = ProcessWrapper.Instance.IsRunning
+            };
             return Json(beServer);
         }
 
 
-        // GET api/values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST api/values
-        public void Post([FromBody] string value)
-        {
-        }
+
 
         // PUT api/values/5
         public void Put(int id, [FromBody] string value)

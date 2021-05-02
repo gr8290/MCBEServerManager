@@ -19,9 +19,8 @@
             <!--色-->
             <SolidColorBrush x:Key="BackgroundColor">#c6c6c6</SolidColorBrush>
             <SolidColorBrush x:Key="BorderBottomColor">#252526</SolidColorBrush>
-            
-            
             <SolidColorBrush x:Key="MenuBackColor">#5c5b59</SolidColorBrush>
+            <SolidColorBrush x:Key="TitleBackgrounColor">#494949</SolidColorBrush>
 
 
             <sys:Double x:Key="BaseWidth">600</sys:Double>

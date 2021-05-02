@@ -18,37 +18,45 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Style="{StaticResource GridMenuBGColor}">
+        <Grid Grid.Column="0" Background="{StaticResource MenuBackColor}" Width="175">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
-
-            <StackPanel  HorizontalAlignment="Left" Width="150" Grid.Row="2" Margin="0,5,0,0" x:Name="MenuStackPanel">
-                <!--<Button Style="{StaticResource MenuButtinStyle}" 
-                        x:Name="BeServerBtn" 
-                        Content="BeServer" 
-                        Click="BeServerBtn_Click"/>-->
-
+            <StackPanel  HorizontalAlignment="Left" Width="175" Grid.Row="2" Margin="0,10,0,0" x:Name="MenuStackPanel">
+                <Grid  Width="150" Height="35" Margin="0,0,0,10" Background="{StaticResource TitleBackgrounColor}" x:Name="MenuSubGrid">
+                    <Grid.Resources>
+                    </Grid.Resources>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="設定" FontSize="20" Foreground="White"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </Grid>
                 <ToggleButton  Style="{StaticResource MCToggleButtonStyle}"
                         x:Name="BeServerManagerBtn" 
                         Content="BeServerManager" 
+                               Width="150"
                         Click="BeServerManagerBtn_Click"
                         Tag="BeServerManagerSetting"
+                         FontWeight="Bold"
                          Margin="4"/>
 
                 <ToggleButton Style="{StaticResource MCToggleButtonStyle}" 
                         x:Name="WebApiBtn" 
                         Content="WebApi" 
                         Click="WebApiBtn_Click"
+                              Width="150"
                         Tag="WebApiSettingUser"
+                        FontWeight="Bold"
                         Margin="4"/>
 
                 <ToggleButton Style="{StaticResource MCToggleButtonStyle}" 
                         x:Name="AdvancedSettingBtn" 
                         Content="高度な設定" 
+                              Width="150"
                         Click="AdvancedSettingBtn_Click"
                         Tag="BeServerManagerAdvancedSetting"
+                        FontWeight="Bold"
                         Margin="4"/>
                 
             </StackPanel>

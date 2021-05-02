@@ -16,7 +16,6 @@ namespace BEServerManager.View.Home.BEServer
         private ObservableCollection<UserData> UserNameCollection;
         private EntryUserManager entryUserManager;
 
-
         public BEServerEntryUserListUserControl()
         {
             InitializeComponent();
@@ -39,14 +38,13 @@ namespace BEServerManager.View.Home.BEServer
             else
             {
                 entryUserManager.Stop();
-                UserNameCollection.Clear();
-                SetCountEntryUser(0);
                 Dispatcher.Invoke(() =>
                 {
+                    UserNameCollection.Clear();
+                    SetCountEntryUser(0);
                 });
             }
         }
-
 
         private void SetEntryUser(List<UserData> entryUserList)
         {

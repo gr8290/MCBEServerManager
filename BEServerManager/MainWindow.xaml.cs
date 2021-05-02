@@ -1,5 +1,4 @@
 ﻿using BEServerManager.Util;
-using BEServerManager.WebApi;
 using ProcessManager;
 using System;
 using System.Windows;
@@ -7,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Interop;
 using System.Windows.Media.Animation;
+using WebApi;
 
 namespace BEServerManager
 {

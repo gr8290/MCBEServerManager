@@ -1,17 +1,18 @@
 ﻿using Microsoft.Owin;
-using Microsoft.Owin.Logging;
-using Owin;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace BEServerManager.Util
+namespace WebApi.Util
 {
-    class WebApiLogUtil : OwinMiddleware
+    public class WebApiLogUtil: OwinMiddleware
     {
         public delegate void OutPutLogDelegate(IOwinContext con);
         public static OutPutLogDelegate OnOutPutLog;
 
-        public WebApiLogUtil(
-            OwinMiddleware next) : base(next)
+        public WebApiLogUtil(OwinMiddleware next) : base(next)
         {
         }
 

@@ -1,8 +1,8 @@
-﻿using BEServerManager.WebApi.App_Start;
-using Microsoft.Owin.Hosting;
+﻿using Microsoft.Owin.Hosting;
 using System;
+using WebApi.AppStart;
 
-namespace BEServerManager.WebApi
+namespace WebApi
 {
     public class BeServerWebApi
     {
@@ -21,6 +21,5 @@ namespace BEServerManager.WebApi
             wa?.Dispose();
             wa = null;
         }
-
     }
 }

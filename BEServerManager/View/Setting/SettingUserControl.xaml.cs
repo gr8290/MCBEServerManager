@@ -35,7 +35,7 @@ namespace BEServerManager.View.Setting
             ToggleButton btn = (ToggleButton)sender;
             DeleteUserControlInGrid(btn);
             AddUserControlInGrid(btn);
-
+            ActiveToggleButton(((ToggleButton)sender));
         }
 
         private void WebApiBtn_Click(object sender, RoutedEventArgs e)
@@ -43,6 +43,7 @@ namespace BEServerManager.View.Setting
             ToggleButton btn = (ToggleButton)sender;
             DeleteUserControlInGrid(btn);
             AddUserControlInGrid(btn);
+            ActiveToggleButton(((ToggleButton)sender));
         }
 
         private void AdvancedSettingBtn_Click(object sender, RoutedEventArgs e)
@@ -50,6 +51,7 @@ namespace BEServerManager.View.Setting
             ToggleButton btn = (ToggleButton)sender;
             DeleteUserControlInGrid(btn);
             AddUserControlInGrid(btn);
+            ActiveToggleButton(((ToggleButton)sender));
         }
 
         private void DeleteUserControlInGrid(ToggleButton btn)
@@ -76,6 +78,27 @@ namespace BEServerManager.View.Setting
             {
                 adduc.SetValue(Grid.ColumnProperty, 1);
                 MainGrid.Children.Add(adduc);
+            }
+        }
+
+        private void ActiveToggleButton(ToggleButton activeToggleButton)
+        {
+            if (activeToggleButton.IsChecked == false)
+            {
+                activeToggleButton.IsChecked = true;
+                return;
+            }
+
+            foreach (var ch in MenuStackPanel.Children)
+            {
+                if (ch is ToggleButton toggleButton)
+                {
+                    if (toggleButton.Equals(activeToggleButton))
+                    {
+                        continue;
+                    }
+                    toggleButton.IsChecked = false;
+                }
             }
         }
 

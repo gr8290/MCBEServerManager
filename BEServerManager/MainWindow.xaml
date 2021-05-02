@@ -92,7 +92,7 @@
                 <Button x:Name="MenuOpenButton" Tag="MenuCloseButton" Grid.Column="0" Style="{StaticResource MCButtonStyle}" Click="MenuOpenButton_Click"/>
                 <Grid Grid.Column="0" Background="{StaticResource MenuBackColor}" x:Name="MenuGrid" Visibility="Collapsed">
                     <StackPanel  HorizontalAlignment="Center" Width="{Binding Width ,ElementName=MenuGrid}" Grid.Row="1" Margin="0,10,0,0" x:Name="MenuStackPanel">
-                        <Grid  Width="150" Margin="0,0,0,10" Background="#494949" x:Name="MenuSubGrid">
+                        <Grid  Width="150" Margin="0,0,0,10" Background="{StaticResource TitleBackgrounColor}" x:Name="MenuSubGrid">
                             <Grid.Resources>
                             </Grid.Resources>
                             <Grid.ColumnDefinitions>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApi.Models
+namespace WebApi.Data
 {
-    public class BeServerCommndModel: BaseModel
+    public class ServerCommndData
     {
         public string Command { get; set; }
     }

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WebApi.Models
 {
-    public class BeServerModel: BaseModel
+    public class LogModel : BaseModel
     {
-
+        public List<string> LogList { get; set; }
     }
 }

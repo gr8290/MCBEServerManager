@@ -259,6 +259,15 @@
     <PackageReference Include="Microsoft.Owin">
       <Version>4.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener">
+      <Version>4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Hosting">
+      <Version>4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,8 +34,8 @@
     <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.2.0.2\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.4.1.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Hosting, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Hosting.4.1.1\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
@@ -67,15 +67,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppStart\Startup.cs" />
-    <Compile Include="Controllers\BeServerCommndController.cs" />
+    <Compile Include="Controllers\ServerCommndController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Data\ServerCommndData.cs" />
     <Compile Include="Handler\ErrorMessageHandler.cs" />
     <Compile Include="BeServerWebApi.cs" />
-    <Compile Include="Controllers\BeServerController.cs" />
+    <Compile Include="Controllers\ServerController.cs" />
     <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\BeServerCommndModel.cs" />
-    <Compile Include="Models\BeServerModel.cs" />
+    <Compile Include="Models\LogModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\WebApiLogUtill.cs" />
+    <Compile Include="Util\WebApiLogUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

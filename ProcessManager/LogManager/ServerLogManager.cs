@@ -4,7 +4,7 @@
     {
         protected override void AddLogAction()
         {
-            ProcessWrapper.Instance.DataSentActionList.Add(AddLog);
+            ProcessWrapper.Instance.DataReceivedActionList.Add(AddLog);
         }
     }
 }

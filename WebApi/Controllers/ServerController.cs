@@ -1,7 +1,6 @@
 ﻿using ProcessManager;
 using Setting.Sqlite;
 using Setting.Sqlite.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -10,12 +9,12 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
-    public class BeServerController : ApiController
+    public class ServerController : ApiController
     {
         [HttpGet]
-        public JsonResult<BeServerModel> Start()
+        public JsonResult<BaseModel> Start()
         {
-            BeServerModel beServer = new BeServerModel();
+            BaseModel beServer = new BaseModel();
             if (ProcessWrapper.Instance.IsRunning == false)
             {
                 using (SqliteWrapper sqlite = new SqliteWrapper())
@@ -33,9 +32,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public JsonResult<BeServerModel> Stop()
+        public JsonResult<BaseModel> Stop()
         {
-            BeServerModel beServer = new BeServerModel();
+            BaseModel beServer = new BaseModel();
             if (ProcessWrapper.Instance.IsRunning == false)
             {
                 beServer.Result = false;
@@ -49,9 +48,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public JsonResult<BeServerModel> Status()
+        public JsonResult<BaseModel> Status()
         {
-            BeServerModel beServer = new BeServerModel
+            BaseModel beServer = new BaseModel
             {
                 Result = ProcessWrapper.Instance.IsRunning
             };

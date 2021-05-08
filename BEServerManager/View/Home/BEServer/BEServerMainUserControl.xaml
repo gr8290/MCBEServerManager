@@ -14,6 +14,7 @@
         <StackPanel Orientation="Vertical" Margin="10,10,10,0"  Grid.Column="0">
             <local:BEServerControlMenuUserControl/>
             <local:BEServerEntryUserListUserControl Margin="0,10,0,0"/>
+            <local:ServerPropertiesUserControl/>
         </StackPanel>
         <Border Background="Transparent" BorderBrush="#252526" BorderThickness="5,0,0,0"  Grid.Column="1">
             <local:BEServerLogUserControl Grid.Column="1"/>

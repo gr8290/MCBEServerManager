@@ -74,6 +74,9 @@
     <Compile Include="View\Home\BEServer\BEServerMainUserControl.xaml.cs">
       <DependentUpon>BEServerMainUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Home\BEServer\BEServerPropertiesUserControl.xaml.cs">
+      <DependentUpon>BEServerPropertiesUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Home\HomeMainUserControl.xaml.cs">
       <DependentUpon>HomeMainUserControl.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Home\BEServer\BEServerMainUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Home\BEServer\BEServerPropertiesUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
